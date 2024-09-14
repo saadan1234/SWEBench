@@ -1,0 +1,27 @@
+2024-09-14 11:12:40,668 - INFO - Environment image sweb.env.x86_64.428468730904ff6b4232aa:latest found for astropy__astropy-11693
+Building instance image sweb.eval.x86_64.astropy__astropy-11693:latest for astropy__astropy-11693
+2024-09-14 11:14:18,413 - INFO - Creating container for astropy__astropy-11693...
+2024-09-14 11:14:18,430 - INFO - Container for astropy__astropy-11693 created: 82fcfe94bcb6d28ead0275b36c3ce17e8016d5ee403be91339b5d58a031b7566
+2024-09-14 11:14:19,062 - INFO - Container for astropy__astropy-11693 started: 82fcfe94bcb6d28ead0275b36c3ce17e8016d5ee403be91339b5d58a031b7566
+2024-09-14 11:14:19,062 - INFO - Intermediate patch for astropy__astropy-11693 written to logs/run_evaluation/test/TinyLlama__TinyLlama-1.1B-Chat-v1.0/astropy__astropy-11693/patch.diff, now applying to container...
+2024-09-14 11:14:19,279 - INFO - Failed to apply patch to container, trying again...
+2024-09-14 11:14:19,321 - INFO - >>>>> Patch Apply Failed:
+patching file astropy/wcs/wcsapi/fitswcs.py
+patch: **** malformed patch at line 34: +        except NoConvergence as e:
+
+
+2024-09-14 11:14:19,322 - INFO - Traceback (most recent call last):
+  File "/workspace/SWEBench/SWE-bench/swebench/harness/run_evaluation.py", line 134, in run_instance
+    raise EvaluationError(
+EvaluationError: Evaluation error for astropy__astropy-11693: >>>>> Patch Apply Failed:
+patching file astropy/wcs/wcsapi/fitswcs.py
+patch: **** malformed patch at line 34: +        except NoConvergence as e:
+
+
+Check (logs/run_evaluation/test/TinyLlama__TinyLlama-1.1B-Chat-v1.0/astropy__astropy-11693/run_instance.log) for more information.
+
+2024-09-14 11:14:19,322 - INFO - Attempting to stop container sweb.eval.astropy__astropy-11693.test...
+2024-09-14 11:14:34,984 - INFO - Attempting to remove container sweb.eval.astropy__astropy-11693.test...
+2024-09-14 11:14:34,990 - INFO - Container sweb.eval.astropy__astropy-11693.test removed.
+2024-09-14 11:14:34,990 - INFO - Attempting to remove image sweb.eval.x86_64.astropy__astropy-11693:latest...
+2024-09-14 11:14:35,110 - INFO - Image sweb.eval.x86_64.astropy__astropy-11693:latest removed.

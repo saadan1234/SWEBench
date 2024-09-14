@@ -1,0 +1,134 @@
+Repo: astropy/astropy
+Patch:
+diff --git a/astropy/wcs/wcsapi/fitswcs.py b/astropy/wcs/wcsapi/fitswcs.py
+--- a/astropy/wcs/wcsapi/fitswcs.py
++++ b/astropy/wcs/wcsapi/fitswcs.py
+@@ -323,7 +323,17 @@ def pixel_to_world_values(self, *pixel_arrays):
+         return world[0] if self.world_n_dim == 1 else tuple(world)
+ 
+     def world_to_pixel_values(self, *world_arrays):
+-        pixel = self.all_world2pix(*world_arrays, 0)
++        # avoid circular import
++        from astropy.wcs.wcs import NoConvergence
++        try:
++            pixel = self.all_world2pix(*world_arrays, 0)
++        except NoConvergence as e:
++            warnings.warn(str(e))
++            # use best_solution contained in the exception and format the same
++            # way as all_world2pix does (using _array_converter)
++            pixel = self._array_converter(lambda *args: e.best_solution,
++                                         'input', *world_arrays, 0)
++
+         return pixel[0] if self.pixel_n_dim == 1 else tuple(pixel)
+ 
+     @property
+@@ -341,7 +351,7 @@ def pixel_to_world_values(self, *pixel_arrays):
+         return world[0] if self.world_n_dim == 1 else tuple(world)
+ 
+     def world_to_pixel_values(self, *world_arrays):
+-        pixel = self.all_world2pix(*world_arrays, 0)
++        # avoid circular import
++        from astropy.wcs.wcs import NoConvergence
++        try:
++            pixel = self.all_world2pix(*world_arrays, 0)
++        except NoConvergence as e:
++            warnings.warn(str(e))
++            # use best_solution contained in the exception and format the same
++            # way as all_world2pix does (using _array_converter)
++            pixel = self._array_converter(lambda *args: e.best_solution,
++                                         'input', *world_arrays, 0)
++
+         return pixel[0] if self.pixel_n_dim == 1 else tuple(pixel)
+ 
+     @property
+@@ -359,7 +369,7 @@ def pixel_to_world_values(self, *pixel_arrays):
+         return world[0] if self.world_n_dim == 1 else tuple(world)
+ 
+     def world_to_pixel_values(self, *world_arrays):
+-        pixel = self.all_world2pix(*world_arrays, 0)
++        # avoid circular import
++        from astropy.wcs.wcs import NoConvergence
++        try:
++            pixel = self.all_world2pix(*world_arrays, 0)
++        except NoConvergence as e:
++            warnings.warn(str(e))
++            # use best_solution contained in the exception and format the same
++            # way as all_world2pix does (using _array_converter)
++            pixel = self._array_converter(lambda *args: e.best_solution,
++                                         'input', *world_arrays, 0)
++
+         return pixel[0] if self.pixel_n_dim == 1 else tuple(pixel)
+ 
+     @property
+@@ -377,7 +387,7 @@ def pixel_to_world_values(self, *pixel_arrays):
+         return world[0] if self.world_n_dim == 1 else tuple(world)
+ 
+     def world_to_pixel_values(self, *world_arrays):
+-        pixel = self.all_world2pix(*world_arrays, 0)
++        # avoid circular import
++        from astropy.wcs.wcs import NoConvergence
++        try:
++            pixel = self.all_world2pix(*world_arrays, 0)
++        except NoConvergence as e:
++            warnings.warn(str(e))
++            # use best_solution contained in the exception and format the same
++            # way as all_world2pix does (using _array_converter)
++            pixel = self._array_converter(lambda *args: e.best_solution,
++                                         'input', *world_arrays, 0)
++
+         return pixel[0] if self.pixel_n_dim == 1 else tuple(pixel)
+ 
+     @property
+@@ -395,7 +405,7 @@ def pixel_to_world_values(self, *pixel_arrays):
+         return world[0] if self.world_n_dim == 1 else tuple(world)
+ 
+     def world_to_pixel_values(self, *world_arrays):
+-        pixel = self.all_world2pix(*world_arrays, 0)
++        # avoid circular import
++        from astropy.wcs.wcs import NoConvergence
++        try:
++            pixel = self.all_world2pix(*world_arrays, 0)
++        except NoConvergence as e:
++            warnings.warn(str(e))
++            # use best_solution contained in the exception and format the same
++            # way as all_world2pix does (using _array_converter)
++            pixel = self._array_converter(lambda *args: e.best_solution,
++                                         'input', *world_arrays, 0)
++
+         return pixel[0] if self.pixel_n_dim == 1 else tuple(pixel)
+ 
+     @property
+@@ -413,7 +423,7 @@ def pixel_to_world_values(self, *pixel_arrays):
+         return world[0] if self.world_n_dim == 1 else tuple(world)
+ 
+     def world_to_pixel_values(self, *world_arrays):
+-        pixel = self.all_world2pix(*world_arrays, 0)
++        # avoid circular import
++        from astropy.wcs.wcs import NoConvergence
++        try:
++            pixel = self.all_world2pix(*world_arrays, 0)
++        except NoConvergence as e:
++            warnings.warn(str(e))
++            # use best_solution contained in the exception and format the same
++            # way as all_world2pix does (using _array_converter)
++            pixel = self._array_converter(lambda *args: e.best_solution,
++                                         'input', *world_arrays, 0)
++
+         return pixel[0] if self.pixel_n_dim == 1 else tuple(pixel)
+ 
+     @property
+@@ -431,7 +441,7 @@ def pixel_to_world_values(self, *pixel_arrays):
+         return world[0] if self.world_n_dim == 1 else tuple(world)
+ 
+     def world_to_pixel_values(self, *world_arrays):
+-        pixel = self.all_world2pix(*world_arrays, 0)
++        # avoid circular import
++        from astropy.wcs.wcs import NoConvergence
++        try:
++            pixel = self.all_world2pix(*world_arrays, 0)
++        except NoConvergence as e:
++            warnings.warn(str(e))
++            # use best_solution contained in the exception and format the same
++            # way as all_world2pix does (using _array_converter)
++            pixel = self._array_converter(lambda *args: e.best_solution,
++                                         'input', *world
